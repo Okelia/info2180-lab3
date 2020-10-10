@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const xPlayer = "X";
     const oPlayer = "O";
     let boxes = document.querySelectorAll("#board div");
+    
 
     for (let num = 0; num < boxes.length; num++ ){ 
         boxes[num].classList.add('square');
@@ -21,12 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         currentBox.innerHTML = currentPlayer
         /** switch between players */
         playerOne = !playerOne
-        
-        if (currentPlayer = oPlayer){
-            currentBox.classList.add(".square.O.hover.O")
+        console.log(currentPlayer)
+ 
+        /** need to fix the hover  */              
+        if (currentPlayer == oPlayer){
+            currentBox.classList.add(".hover.O")
         } else{
-            currentBox.classList.add(".square.X.hover")
+            currentBox.classList.add(".hover")
         }
     }
+    
+    
     
 });
