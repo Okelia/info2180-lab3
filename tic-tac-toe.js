@@ -18,8 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentPlayer = playerOne ? oPlayer : xPlayer
         currentBox.classList.add(currentPlayer)
         console.log(currentPlayer.innerHTML)
+        currentBox.innerHTML = currentPlayer
         /** switch between players */
         playerOne = !playerOne
+        
+        if (currentPlayer = oPlayer){
+            currentBox.classList.add(".square.O.hover.O")
+        } else{
+            currentBox.classList.add(".square.X.hover")
+        }
     }
     
 });
