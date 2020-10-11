@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // allow the user to click the box once
         boxes[num].addEventListener("click", clickFunction, {once: true})
         boxes[num].onmouseover = function (){
-            boxes[num].classList.toggle("hover", false)
-        }
-        boxes[num].onmouseover = function(){
             boxes[num].classList.toggle("hover", true)
+        }
+        boxes[num].onmouseout = function(){
+            boxes[num].classList.toggle("hover", false)
         }
     }
     
@@ -29,20 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
         switchPlayer()
        
          
-        /** need to fix the hover  */     
-        if (playerOne){
-            currentBox.classList.add("hover")
-        } else{
-            currentBox.classList.add("hover")
-        }
+   
     }
      /** switch between players */
      function switchPlayer(){
         playerOne = !playerOne
      }
-     function mouseOver(){
-         document.getElementsByClassName("square O").add("hover");
-     }
+     
     
     
 });
