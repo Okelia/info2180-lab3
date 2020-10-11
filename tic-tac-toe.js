@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const xPlayer = "X";
     const oPlayer = "O";
     let boxes = document.querySelectorAll("#board div");
+    const WINIING =[
+        [0, 1, 2],  [3, 4, 5],  [6, 7, 8], 
+        [0, 3, 6],  [1, 4, 7],  [2, 5, 8],  
+        [0, 4, 8],  [2, 4, 6]
+    ]
     
 
     for (let num = 0; num < boxes.length; num++ ){ 
@@ -26,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentBox.classList.add(currentPlayer)
         console.log(currentPlayer.innerHTML)
         currentBox.innerHTML = currentPlayer
+        if (playerWon(currentPlayer)){
+            document.getElementById("status").className="you-won";
+            document.getElementById("status").innerHTML= "Congratulations! " + currentPlayer + " is the Winner";
+        }
         switchPlayer()
        
          
@@ -34,6 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
      /** switch between players */
      function switchPlayer(){
         playerOne = !playerOne
+     }
+
+     function playerWon(currentPlayer){
+        return WINIING.some(combination => {
+            return combination.every(index => {
+                return boxes[index].classList.contains(currentPlayer)
+            })
+        })
      }
      
     
