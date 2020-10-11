@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         [0, 4, 8],  [2, 4, 6]
     ]
     const newGameButton = document.getElementsByClassName("btn");
-    
+    document.getElementsByClassName("btn")[0].onclick=function(){
+        window.location.reload()
+        
+    }
     /*document.getElementsByClassName("btn")[0].onclick=function(){
         for ( let i=0; i<boxes.length;i++){
             boxes[i].innerHTML= "";
@@ -19,13 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     for (let num = 0; num < boxes.length; num++ ){ 
-        document.getElementsByClassName("btn").onclick=function(){
-            boxes.forEach(box => {
-                box.classList.remove(oPlayer)
-                box.classList.remove(xPlayer)
-            })
-            
-        }
         boxes[num].classList.add('square');
         // allow the user to click the box once
         boxes[num].addEventListener("click", clickFunction, {once: true})
