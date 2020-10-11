@@ -10,28 +10,39 @@ document.addEventListener("DOMContentLoaded", () => {
         boxes[num].classList.add('square');
         // allow the user to click the box once
         boxes[num].addEventListener("click", clickFunction, {once: true})
-        
+        boxes[num].onmouseover = function (){
+            boxes[num].classList.toggle("hover", false)
+        }
+        boxes[num].onmouseover = function(){
+            boxes[num].classList.toggle("hover", true)
+        }
     }
     
     function clickFunction(e){
         // cell clicked on will be the target
+       
         const currentBox = e.target
         const currentPlayer = playerOne ? oPlayer : xPlayer
         currentBox.classList.add(currentPlayer)
         console.log(currentPlayer.innerHTML)
         currentBox.innerHTML = currentPlayer
-        /** switch between players */
-        playerOne = !playerOne
-        console.log(currentPlayer)
- 
-        /** need to fix the hover  */              
-        if (currentPlayer == oPlayer){
-            currentBox.classList.add(".hover.O")
+        switchPlayer()
+       
+         
+        /** need to fix the hover  */     
+        if (playerOne){
+            currentBox.classList.add("hover")
         } else{
-            currentBox.classList.add(".hover")
+            currentBox.classList.add("hover")
         }
     }
-    
+     /** switch between players */
+     function switchPlayer(){
+        playerOne = !playerOne
+     }
+     function mouseOver(){
+         document.getElementsByClassName("square O").add("hover");
+     }
     
     
 });
